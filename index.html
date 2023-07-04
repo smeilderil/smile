@@ -120,6 +120,13 @@
     </div>
   </div>
 </div>
+
+<div>
+  <audio id="audio">
+    <source src="mosquito.mp3" type="audio/mpeg">
+  </audio>
+  <button id="playPauseBTN" onclick="playPause()">play&#9658;</button>
+</div>
 <script type="text/javascript">
   document.querySelector("body").addEventListener('mousemove',eyeball);
     function eyeball(){
@@ -131,7 +138,24 @@
         let rot = (radian * (180 / Math.PI) * -1) + 270;
         eye.style.transform="rotate("+ rot +"deg)";
     })
-  }  
+  } 
+
+  let audio = document.getElementById('audio');
+  let playPauseBTN = document.getElementById('playPauseBTN')
+  let count = 0;
+
+  function playPause(){
+    if(count==0) {
+      count = 1;
+      audio.play();
+      playPauseBTN.innerHTML = "pause &#9208;";
+    }else{
+      count = 0;
+      audio.pause();
+      playPauseBTN.innerHTML = "Play &#9658;";
+    }
+  } 
 </script>
 </body>
 </html>
+   
